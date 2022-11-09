@@ -1,0 +1,12 @@
+{
+    "0":{
+       "imagePath":"/aeroclub/src/View/assets/images/background.jpg",
+       "name":"NAME",
+       "description":"この喫茶店は、いつでもコーヒーの香りを漂わせています。彼女はこの喫茶店で働いて、着々と実力をつけていきました。今では知る人ぞ知る、名人です。"
+    },
+    "1":{
+       "imagePath":"/aeroclub/src/View/assets/images/background.jpg",
+       "name":"NAME_2",
+       "description":""
+    }
+ }

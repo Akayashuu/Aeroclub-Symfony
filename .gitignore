@@ -1,0 +1,14 @@
+*.png
+*.pnj
+*.jpg
+package-lock.json
+package.json
+info.json
+Settings.ts
+# Folder
+logs/
+node_modules/
+.vscode/
+.git/
+.hg/
+.hgignore
