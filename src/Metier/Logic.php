@@ -12,7 +12,7 @@ class Logic {
 
     public function __construct() {
         $this->config = new ConfigWeb();
-    }
+    }   
        
 
     protected function getButtonConPro() {
