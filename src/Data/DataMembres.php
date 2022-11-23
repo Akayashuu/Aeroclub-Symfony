@@ -1,19 +1,10 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace App\Data;
 
-/**
- * Description of Data
- *
- * @author joey.hossaert
- */
-class Data extends Connection {
+use App\Data\Connection;
+
+class DataMembres extends Connection {
     protected $numMembres="";
     protected $prenom="";
     protected $nom="";
@@ -35,6 +26,10 @@ class Data extends Connection {
     protected $datePlanning="";
 
 
+    public function __construct() {
+        parent::__construct();
+    }
+
     public function __get($name) 
     {
         if(isset($this->$name))
@@ -52,16 +47,17 @@ class Data extends Connection {
         return $this->pdo->lastInsertId();
     }
     
-    public function SelectInfosProfil($numMembres){
-        $requete = "SELECT * FROM 'membres' WHERE nummembres = :numeromembres;";
+    public function SelectInfosProfil($numMembres) {
+        $requete = "SELECT * FROM membres WHERE nummembres = :id;";
         $prep = $this->pdo->prepare($requete);
-        $prep->bindValue(':numeromembres', $numMembres);
+        $prep->bindValue(':id', $numMembres);
         $prep->execute();
-        $membres = $prep->fetchAll(PDO::FETCH_ASSOC);
+        $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);
         foreach ($membres[0] as $clef =>$data){
             $this->$clef = $data;
         }
+        return $membres;
     }
-    
+
     
 }

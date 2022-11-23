@@ -2,7 +2,7 @@
 
 use App\Router\Router;
 use App\Test\ConnectionTest;
-use App\Test\AuthTest;
+use App\Test\DataMembresTest;
 use App\Config\ConfigWeb;
 use App\Controller\Controller;
 
@@ -35,7 +35,7 @@ $RouterInstance->register('/connection', function () {
 });
 
 $RouterInstance->register('/test', function () {
-    new AuthTest();
+    new DataMembresTest();
 });
 
 echo $RouterInstance->resolve($_SERVER['REQUEST_URI']);
