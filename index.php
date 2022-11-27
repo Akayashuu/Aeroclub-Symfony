@@ -35,7 +35,7 @@ $RouterInstance->register('/connection', function () {
 });
 
 $RouterInstance->register('/test', function () {
-    new DataMembresTest();
+    new ConnectionTest();
 });
 
 echo $RouterInstance->resolve($_SERVER['REQUEST_URI']);

@@ -30,11 +30,8 @@ class DataMembres extends Connection {
         parent::__construct();
     }
 
-    public function __get($name) 
-    {
-        if(isset($this->$name))
-            return $this->$name;
-        
+    public function __get($name) {
+        return isset($this->$name) ? $this->$name : false;
     }
     
     public function __set($name, $value) 

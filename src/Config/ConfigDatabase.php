@@ -6,9 +6,9 @@ namespace App\Config;
 class ConfigDatabase {
 
     private $dbname = "aeroclub";
-    private $host = '192.168.76.31';
-    private $log = 'leo';
-    private $mdp = 'aeroleo';
+    private $host = 'localhost';
+    private $log = 'app';
+    private $mdp = 'ua95qI0eTN^Y8@99a8@a5pF3Tyw96';
     private $port = '5432';
 
 

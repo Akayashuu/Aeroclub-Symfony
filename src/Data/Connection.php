@@ -5,12 +5,13 @@ use App\Config\ConfigDatabase;
 
 
 class Connection {
-    
     // Constructeur qui load l'objet de base de données
     protected $pdo;
     public function __construct() {
         $this->pdo = $this->bddConnexion();
     }
+
+
     // créateur de l'objet PDO
     protected function bddConnexion() {
         $e = new ConfigDatabase();
@@ -22,6 +23,13 @@ class Connection {
             die();
         }
         return $dbh;
+    }
+
+    /**
+     * Getteur magique
+     */
+    public function __get($name) {
+        return isset($this->$name) ? $this->$name : false;
     }
    
 }
