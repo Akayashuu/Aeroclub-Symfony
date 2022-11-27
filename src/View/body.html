@@ -1,66 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Aeroclub</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="/aeroclub/src/View/assets/css/visu.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-  </head>
-  <body>
-    <div class="hero is-fullheight header-image">
-      <div class="hero-head">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-          <div class="container">
-            <div class="navbar-brand">
-              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbart">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aeroclub - </title>
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bulma Version 0.9.0-->
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+        <link rel="stylesheet" type="text/css" href="/aeroclub/src/View/assets/css/body.css">
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    </head>
+    <body>
+        <section class="hero is-info is-medium is-bold">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" href="#LINKACC#">
+                                <p class="brand-paragraph">Aeroclub</p>
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenu" class="navbar-menu">
+                            <div class="navbar-end">
+                                <div class="tabs is-right">
+                                    <ul>
+                                        <li class="is-active"><a href="#LINKACC#">Home</a></li>
+                                        <li><a href="#LINKPLANESLIST#">Avions</a></li>
+                                    </ul>
+                                    <span class="navbar-item">
+                                        <a class="button is-white is-outlined" href="#LINKCONNECTION#">
+                                            <span class="icon">
+                                                <i class="fa fa-github"></i>
+                                            </span>
+                                            <span title="Hello from the other side">#TXTBUTTONPROFILE#</span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div id="navbart" class="navbar-menu">
-              <div class="navbar-end">
-                <span class="navbar-item">
-                  <a class="button is-white is-outlined" href="#LINKACC#">
-                    <span class="icon">
-                      <i class="fa fa-home"></i>
-                    </span>
-                    <span>Accueil</span>
-                  </a>
-                </span>
-                <span class="navbar-item">
-                  <a class="button is-white is-outlined" href="%LINKPLANESLIST%">
-                    <span class="icon">
-                      <i class="fa-solid fa-plane"></i>
-                    </span>
-                    <span>Planes</span>
-                  </a>
-                </span>
-                <span class="navbar-item">
-                  <a class="button is-white is-outlined" href="%LINKCONNECTION%">
-                    <span class="icon">
-                      <i class="fa-solid fa-plane"></i>
-                    </span>
-                    <span>%TXTBUTTONPROFILE%</span>
-                  </a>
-                </span>
-              </div>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title">
+                    The new standard in &lt;insert industry here&gt;
+                    </h1>
+                    <h2 class="subtitle">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </h2>
+                </div>
             </div>
-          </div>
-        </nav>
-      </div>
-      <div class="hero-body">
-        <div class="container has-text-centered">#CONTENT#</div>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p> MOn super site! <br>Made with <a target="_blank" href="https://bulma.io">Bulma</a> And <a href="https://bulmatemplates.github.io/bulma-templates/">Bulma Templates</a>
-        </p>
-      </div>
-    </footer>
-  </body>
+        </section>
+            #CONTENT#
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p>
+                        <a class="icon" href="https://github.com/BulmaTemplates/bulma-templates">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </p>
+                    <div class="control level-item">
+                        <a href="https://github.com/BulmaTemplates/bulma-templates">
+                            <div class="tags has-addons">
+                                <span class="tag is-dark">Bulma Templates</span>
+                                <span class="tag is-info">MIT license</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <script src="/aeroclub/src/View/assets/js/nav.js"></script>
+        </footer>
+    </body>
 </html>

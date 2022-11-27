@@ -13,10 +13,10 @@ class LogicAccueil extends Logic  {
         $this->table = Array(
             "#LINKACC#"=>$this->config->defaultDir."/",
             "#CONTENT#"=>$this->content,
-            "%LINKCONNECTION%"=>$this->getButtonConPro(),
-            "%TXTBUTTONPROFILE%"=>$this->getButtonText(),
-            "%LINKPROFILE%"=>$this->config->defaultDir."/profile",
-            "%LINKPLANESLIST%"=>$this->config->defaultDir."/avions",
+            "#LINKCONNECTION#"=>$this->getButtonConPro(),
+            "#TXTBUTTONPROFILE#"=>$this->getButtonText(),
+            "#LINKPROFILE#"=>$this->config->defaultDir."/profile",
+            "#LINKPLANESLIST#"=>$this->config->defaultDir."/avions",
         );
         $this->makeView();
     }
