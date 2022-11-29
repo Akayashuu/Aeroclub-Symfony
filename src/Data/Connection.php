@@ -22,7 +22,7 @@ class Connection {
     /**
      * PDO instance
      */
-    protected $pdo;
+    protected \PDO $pdo;
 
 
     /**
@@ -34,9 +34,9 @@ class Connection {
 
     /**
      * Créer l'instance de class PDO 
-     * @return dbh Une instance PDO ou false;
+     * @return \PDO|false Une instance PDO ou false;
      */
-    protected function bddConnexion() {
+    protected function bddConnexion():\PDO|false {
         $e = new ConfigDatabase();
         try {
             $dbh = new \PDO("pgsql:host=$e->host;port=$e->port;dbname=$e->dbname", $e->log, $e->mdp);
@@ -49,9 +49,10 @@ class Connection {
     }
 
     /**
-     * Getteur magique
+     * Get Properties in the class if she exist
+     * @return String Properties 
      */
-    public function __get($name) {
+    public function __get(String $name):String {
         return isset($this->$name) ? $this->$name : false;
     }
 }

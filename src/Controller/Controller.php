@@ -7,26 +7,50 @@ use App\Metier\LogicAvions;
 use App\Metier\LogicConnection;
 
 
+/**
+ * Class controller 
+ * @Namespace App\Controller
+ * 
+ * Elle fait la redirection des pages
+ * 
+ * Default => URL : / [Page Accueil]
+ * Profile => URL : /profile [Page Profile]
+ * Avions => URL : /avions [Page Avions]
+ * Connection => URL : /connection [Page Connection]
+ * 
+ */
 class Controller {
     
-    
-    public function __construct() {
+    /**
+     * Constructor
+     */
+    public function __construct() {}
 
-    }
-
-    static function default() {
+    /**
+     * Default redirection
+     */
+    static function default():void {
         $k = new LogicAccueil();
     }
 
-    static function profile() {
+    /**
+     * Profile redirection
+     */
+    static function profile():void {
         $k = new LogicProfile();
     }
 
-    static function avions() {
+    /**
+     * Avions redirection
+     */
+    static function avions():void {
         $k = new LogicAvions();
     }
 
-    static function connection() {
+    /**
+     * Connection redirection
+     */
+    static function connection():void {
         $k = new LogicConnection();
     }
 

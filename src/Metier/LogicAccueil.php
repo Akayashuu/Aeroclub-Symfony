@@ -3,34 +3,54 @@ namespace App\Metier;
 use App\Config\ConfigWeb;
 use App\Metier\Logic;
 
-
+/**
+ * Class LogicAccueil
+ * @namespace App\Metier
+ * 
+ * 
+ * Contiens la logique de la page Accueil
+ */
 class LogicAccueil extends Logic  {
+    /**
+     * Contenu de la page
+     */
+    private string $content;
+    /**
+     * Tableau d'argument dans la page à remplacer
+     */
+    private array $table;
 
+    /**
+     * Constructeur
+     */
     public function __construct() {
         parent::__construct();
-        $this->files = file_get_contents("./src/View/body.html");
         $this->content = file_get_contents("./src/View/accueil.html");
         $this->table = Array(
-            "#LINKACC#"=>$this->config->defaultDir."/",
-            "#CONTENT#"=>$this->content,
-            "#LINKCONNECTION#"=>$this->getButtonConPro(),
-            "#TXTBUTTONPROFILE#"=>$this->getButtonText(),
-            "#LINKPROFILE#"=>$this->config->defaultDir."/profile",
-            "#LINKPLANESLIST#"=>$this->config->defaultDir."/avions",
+            "#CONTENT#"=>$this->content
         );
         $this->makeView();
     }
        
-    public function __get($name) {
+    /**
+     * Get Properties in the class if she exist
+     * @return String Properties 
+     */
+    public function __get(String $name):String {
         return isset($this->$name) ? $this->$name : false;
     }
-   
-    // setteur magique
-    public function __set($name, $value) {
-        return isset($this->$name) ? $this->$name = $this->$name = $value : false;
+    
+    /**
+     * Set Properties magic function
+     */
+    public function __set(string $name, mixed $value):void {
+        isset($this->$name) || $this->$name === null ? $this->$name = $value : "";
     }
 
-    public function makeView() {
+    /**
+     * Renvoie la vu au client
+     */
+    private function makeView():void {
         $this->files = strtr($this->files, $this->table);
         echo $this->files;
     }

@@ -4,47 +4,131 @@ namespace App\Data;
 
 use App\Data\Connection;
 
+/**
+ * Class DataMembres
+ * @Namespace App\Data
+ * 
+ * 
+ * Gestion de la table Membres dans la base de données
+ */
 class DataMembres extends Connection {
-    protected $numMembres="";
-    protected $prenom="";
-    protected $nom="";
-    protected $dateNaissance="";
-    protected $lieuNaissance="";
-    protected $adresse="";
-    protected $codePostal="";
-    protected $ville="";
-    protected $tel="";
-    protected $mail="";
-    protected $profession="";
-    protected $numCivil="";
-    protected $numMembre="";
-    protected $numBadge="";
-    protected $carteFederale="";
-    protected $dateTheoriquebb="";
-    protected $datebb="";
-    protected $dateTheoriquePlanning="";
-    protected $datePlanning="";
+    /**
+     * Numéro du membre
+     */
+    private int $numMembres = 0;
+    /**
+     * Prénom du membre
+     */
+    private string $prenom = "";
+    /**
+     * Nom du membre
+     */
+    private string $nom = "";
+    /**
+     * Date de naissance du membre
+     */
+    private string $dateNaissance = "";
+    /**
+     * Lieu de Naissance du membre
+     */
+    private string $lieuNaissance = "";
+    /**
+     * Adresse du membre
+     */
+    private string $adresse = "";
+    /**
+     * Code postal du membre
+     */
+    private string $codePostal = "";
+    /**
+     * Ville du membres
+     */
+    private string $ville = "";
+    /**
+     * Téléphone du membre
+     */
+    private string $tel = "";
+    /**
+     * Email du membre
+     */
+    private string $mail = "";
+    /**
+     * Profession du membre
+     */
+    private string $profession = "";
+    /**
+     * Numéro civil du membre
+     */
+    private string $numCivil = "";
+    /**
+     * Numéro de qualification du membre
+     */
+    private int $numQualif = 0;
+    /**
+     * Numéro de badge du membre
+     */
+    private int $numBadge = 0;
+    /**
+     * Numéro de carte fédérale du membre
+     */
+    private string $carteFederale = "";
+    /**
+     * Date théorique bb
+     */
+    private string $dateTheoriquebb = "";
+    /**
+     * Date bb
+     */
+    private string $datebb = "";
+    /**
+     * Date théorique du planing
+     */
+    private string $dateTheoriquePlanning = "";
+    /**
+     * Date du planing
+     */
+    private string $datePlanning = "";
+    /**
+     * Mots de passe du membres
+     */
+    private string $password = "";
 
 
+    /**
+     * Constructor
+     */
     public function __construct() {
         parent::__construct();
     }
 
-    public function __get($name) {
+    /**
+     * Get Properties in the class if she exist
+     * @return String Properties 
+     */
+    public function __get(String $name):String {
         return isset($this->$name) ? $this->$name : false;
     }
     
-    public function __set($name, $value) 
-    {
-        if(isset($this->$name) || $this->$name === null) $this->$name = $value;
-        
+    /**
+     * Set Properties magic function
+     */
+    public function __set(string $name, mixed $value):void {
+        isset($this->$name) || $this->$name === null ? $this->$name = $value : "";
     }
     
-    public function getLastInsertId(){
+    /**
+     * Get le dernière id input
+     * @return string|false Le dernière id input ou false
+     */
+    public function getLastInsertId():string|false {
         return $this->pdo->lastInsertId();
     }
     
-    public function SelectInfosProfil($numMembres) {
+    /**
+     * Récupère les données d'un membres en particulier
+     * @return array Les données en fonction de l'id
+     */
+    public function SelectInfosProfil(int $numMembres):array {
         $requete = "SELECT * FROM membres WHERE nummembres = :id;";
         $prep = $this->pdo->prepare($requete);
         $prep->bindValue(':id', $numMembres);

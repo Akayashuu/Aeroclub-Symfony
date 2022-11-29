@@ -2,6 +2,12 @@
 namespace App\Test;
 use App\Data\Connection;
 
+/**
+ * Class ConnectionTest
+ * @namespace App\Test;
+ *
+ * Class de test d'authentification à la base de données 
+ */
 class ConnectionTest {
     private $data;
     

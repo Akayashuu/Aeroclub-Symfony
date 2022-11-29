@@ -16,34 +16,37 @@ class ConfigDatabase {
     /**
      * Nom de la base de données
      */
-    private $dbname = "aeroclub";
+    private String $dbname = "aeroclub";
     /**
      * Host 
      * (localhsot dans notre cas) sinon une IP
      */
-    private $host = 'localhost';
+    private String $host = 'localhost';
     /**
      * Login du compte de la bdd
      */
-    private $log = 'app';
+    private String $log = 'app';
     /**
      * Mot de passe du compte de la bdd
      */
-    private $mdp = 'ua95qI0eTN^Y8@99a8@a5pF3Tyw96';
+    private String $mdp = 'ua95qI0eTN^Y8@99a8@a5pF3Tyw96';
     /**
      * Port de la bdd
      */
-    private $port = '5432';
+    private String $port = '5432';
 
     /**
      * Constructor
      */
-    public function __construct() {}
+    public function __construct() {
+
+    }
     
     /**
-     * Getter magique
+     * Get Properties in the class if she exist
+     * @return String Properties 
      */
-    public function __get($name) {
+    public function __get(String $name):String {
         return isset($this->$name) ? $this->$name : false;
     }
 }

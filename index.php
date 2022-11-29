@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * Fichier principal de Aeroclub
+ * 
+ * Depuis ici sont appelé tous les pages
+ * 
+ * NOTE : 
+ * 
+ * Vendor est un autoloader de class php il fonctionne avec le psr-4 de composer (composer.json) et utilise les namespaces.
+ */
 use App\Router\Router;
 use App\Test\ConnectionTest;
 use App\Test\DataMembresTest;
@@ -35,7 +43,7 @@ $RouterInstance->register('/connection', function () {
 });
 
 $RouterInstance->register('/test', function () {
-    new ConnectionTest();
+    new DataMembresTest();
 });
 
 echo $RouterInstance->resolve($_SERVER['REQUEST_URI']);

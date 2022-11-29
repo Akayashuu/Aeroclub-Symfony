@@ -17,7 +17,7 @@ class ConfigWeb {
     /**
      * Chemin par défault
      */
-    private $defaultDir="/aeroclub";
+    private String $defaultDir="/aeroclub";
 
     /**
      * Constructor
@@ -25,9 +25,10 @@ class ConfigWeb {
     public function __construct() {}
     
     /**
-     * Getter magique
+     * Get Properties in the class if she exist
+     * @return String Properties 
      */
-    public function __get($name) {
+    public function __get(String $name):String {
         return isset($this->$name) ? $this->$name : false;
     }
 }
