@@ -8,3 +8,17 @@
         menu.classList.toggle('is-active');
     });
 })();
+
+
+(function() {
+    var page = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
+    var k = document.getElementById(page);
+        if(!k) {
+            k = "default"
+        }
+    var nav = document.getElementsByClassName("navLi")
+    for(let e of nav[0].getElementsByTagName("li")) {
+        console.log(e)
+    }
+    
+})()
