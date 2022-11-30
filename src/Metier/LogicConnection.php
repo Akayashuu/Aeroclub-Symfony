@@ -24,9 +24,9 @@ class LogicConnection extends Logic {
        
     /**
      * Get Properties in the class if she exist
-     * @return String Properties 
+     * @return String|false Properties 
      */
-    public function __get(String $name):String {
+    public function __get(String $name):String|false {
         return isset($this->$name) ? $this->$name : false;
     }
     

@@ -21,7 +21,7 @@ class ConfigDatabase {
      * Host 
      * (localhsot dans notre cas) sinon une IP
      */
-    private String $host = '192.168.76.32';
+    private String $host = 'localhost';
     /**
      * Login du compte de la bdd
      */
@@ -44,9 +44,9 @@ class ConfigDatabase {
     
     /**
      * Get Properties in the class if she exist
-     * @return String Properties 
+     * @return String|false Properties 
      */
-    public function __get(String $name):String {
+    public function __get(String $name):String|false {
         return isset($this->$name) ? $this->$name : false;
     }
 }

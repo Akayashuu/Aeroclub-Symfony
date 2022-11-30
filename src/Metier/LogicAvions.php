@@ -31,8 +31,7 @@ class LogicAvions extends Logic {
     public function __construct() {
         parent::__construct();
         $this->contentTable = Array(
-            "%firstCard%"=>$this->getCard(0),
-            "%secondCard%"=>$this->getCard(1),
+            "#CARD#"=>$this->getCard(),
         );
         $this->content = file_get_contents("./src/View/avions.html");
         $this->content = strtr($this->content, $this->contentTable);
@@ -44,9 +43,9 @@ class LogicAvions extends Logic {
        
     /**
      * Get Properties in the class if she exist
-     * @return String Properties 
+     * @return String|false Properties 
      */
-    public function __get(String $name):String {
+    public function __get(String $name):String|false {
         return isset($this->$name) ? $this->$name : false;
     }
     
@@ -63,11 +62,11 @@ class LogicAvions extends Logic {
      * @param string|int $id Id de la carte dans le json
      * @return string Renvoie l'HTML de la carte
      */
-    private function getCard(string|int $id):string {
-        $json = file_get_contents("./src/View/assets/json/card.json");
+    private function getCard():string {
         $card = json_decode($json, true)[$id];
-        $k = "<br><div class='card'> <div class='card-image'> <figure class='image is-4by3'><img src='$card[imagePath]' alt='Placeholder image'></figure></div></div>";
-        $k = $k . "<br><article class='message is-dark'> <div class='message-header'><p>$card[name]</p></div><div class='message-body'>$card[description]</div></article><br>";
+
+        $k = "<div class='column is-half'><br><div class='card'> <div class='card-image'> <figure class='image is-4by3'><img src='$card[imagePath]' alt='Placeholder image'></figure></div></div>";
+        $k = $k . "<br><article class='message is-dark'> <div class='message-header'><p>$card[name]</p></div><div class='message-body'>$card[description]</div></article><br></div>";
         return $k;
     }
 
