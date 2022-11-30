@@ -21,7 +21,7 @@ class ConfigDatabase {
      * Host 
      * (localhsot dans notre cas) sinon une IP
      */
-    private String $host = 'localhost';
+    private String $host = '192.168.76.32';
     /**
      * Login du compte de la bdd
      */

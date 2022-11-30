@@ -12,13 +12,14 @@
 
 (function() {
     var page = window.location.href.substring(window.location.href.lastIndexOf('/') + 1)
-    var k = document.getElementById(page);
-        if(!k) {
-            k = "default"
+        if(!page) {
+            page = "default"
         }
     var nav = document.getElementsByClassName("navLi")
     for(let e of nav[0].getElementsByTagName("li")) {
-        console.log(e)
+        if(e.id == page) {
+            e.setAttribute("class", "is-active")
+        }
     }
     
 })()

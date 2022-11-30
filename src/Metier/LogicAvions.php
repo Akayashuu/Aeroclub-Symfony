@@ -66,8 +66,8 @@ class LogicAvions extends Logic {
     private function getCard(string|int $id):string {
         $json = file_get_contents("./src/View/assets/json/card.json");
         $card = json_decode($json, true)[$id];
-        $k = "<div class='card'> <div class='card-image'> <figure class='image is-4by3'><img src='$card[imagePath]' alt='Placeholder image'></figure></div></div>";
-        $k = $k . "<br><article class='message is-dark'> <div class='message-header'><p>$card[name]</p></div><div class='message-body'>$card[description]</div></article>";
+        $k = "<br><div class='card'> <div class='card-image'> <figure class='image is-4by3'><img src='$card[imagePath]' alt='Placeholder image'></figure></div></div>";
+        $k = $k . "<br><article class='message is-dark'> <div class='message-header'><p>$card[name]</p></div><div class='message-body'>$card[description]</div></article><br>";
         return $k;
     }
 
