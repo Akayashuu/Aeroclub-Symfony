@@ -15,10 +15,13 @@ use App\Config\ConfigWeb;
 use App\Controller\Controller;
 
 
+
 require './vendor/autoload.php';
 $configWeb = new ConfigWeb();
 $RouterInstance = new Router();
 $v = new Controller();
+
+
 
 $RouterInstance->setDefaultDir($configWeb->defaultDir);
 
