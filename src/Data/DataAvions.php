@@ -82,11 +82,15 @@ class DataAvions extends Connection {
     
 
     /**
-     * 
+     * Récupère la list des avions
      * @return array Liste de tous les avions
      */
-    private function getAllAvions():array {
-
+    public function getAllAvions():array {
+        $query = "SELECT * FROM avions;";
+        $prep = $this->pdo->prepare($query);
+        $prep->execute();
+        $data = $prep->fetchAll(\PDO::FETCH_ASSOC);
+        return $data;
     }
 
     

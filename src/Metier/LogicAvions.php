@@ -2,6 +2,7 @@
 namespace App\Metier;
 use App\Config\ConfigWeb;
 use App\Metier\Logic;
+use App\Data\DataAvions;
 
 
 /**
@@ -63,11 +64,14 @@ class LogicAvions extends Logic {
      * @return string Renvoie l'HTML de la carte
      */
     private function getCard():string {
-        $card = json_decode($json, true)[$id];
-
-        $k = "<div class='column is-half'><br><div class='card'> <div class='card-image'> <figure class='image is-4by3'><img src='$card[imagePath]' alt='Placeholder image'></figure></div></div>";
-        $k = $k . "<br><article class='message is-dark'> <div class='message-header'><p>$card[name]</p></div><div class='message-body'>$card[description]</div></article><br></div>";
-        return $k;
+        $str = "";
+        $t = new DataAvions();
+        $data = $t->getAllAvions();
+        foreach($data as $card) {
+            $str .= "<div class='column is-half'><br><div class='card'> <div class='card-image'> <figure class='image is-4by3'><img src='/aeroclub/src/View/assets/images/$card[image]' alt='Placeholder image'></figure></div></div>";
+            $str .= "<br><article class='message is-dark'> <div class='message-header'><p>$card[name]</p></div><div class='message-body'>$card[description]</div></article><br></div>";
+        }
+        return $str;
     }
 
     /**

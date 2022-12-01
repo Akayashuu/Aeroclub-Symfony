@@ -7,7 +7,9 @@ CREATE TABLE avions (
     forfait3 real,
     reductionSemaine real,
     immatriculation varchar(20),
-    image varchar(50)
+    image varchar(50),
+    name varchar(50),
+    description varchar(500)
 );
 
 
