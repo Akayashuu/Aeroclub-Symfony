@@ -142,14 +142,12 @@ class DataMembres extends Connection {
 
     /**
      * Recupère les données du membres en fonction du mot de passe et de l'email
-     * @param string $password Le password du membre
      * @param string $email L'email du membre
      * @return array Les données du membre
      */
-    public function getUserFromHisPasswordAndEmail(string $password, string $email):array {
-        $requete = "SELECT * FROM membres WHERE password = :password AND email = :email;";
+    public function getUserFromHisPasswordAndEmail(string $email):array {
+        $requete = "SELECT * FROM membres WHERE email = :email;";
         $prep = $this->pdo->prepare($requete);
-        $prep->bindValue(':password', $password);
         $prep->bindValue(':email', $email);
         $prep->execute();
         $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);

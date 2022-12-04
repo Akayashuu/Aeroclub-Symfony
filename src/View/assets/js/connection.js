@@ -2,15 +2,14 @@ $("#connectButton").on("click", (event) => {
 
     const pass = $("#passwordInput").val();
     const mail = $("#emailInput").val();
-    const Data = {
-        email:mail,
-        password:pass
-    }
+    const Data = new FormData();
+        Data.append('email', mail)
+        Data.append("password", pass)
     fetch(
         "/aeroclub/src/Metier/LogicAuth.php",
         {
-            method:"POST",
-            body: JSON.stringify(Data),
+            method: "POST",
+            body: Data
         }
     ).then(async function(response) {
         if(response.ok) {
