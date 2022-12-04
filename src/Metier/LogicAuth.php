@@ -2,6 +2,8 @@
 namespace App\Metier;
 use App\Config\ConfigWeb;
 use App\Metier\Logic;
+use App\Metier\LogicSession
+;
 use App\Data\DataMembres;
 require '../../vendor/autoload.php';
 
@@ -76,6 +78,27 @@ class LogicAuth extends Logic {
         return isset($this->$name) ? $this->$name : false;
     }
 
+    /**
+     * Active la session
+     * @return bool
+     */
+    private function initSession():bool {
+        if(!session_id()) {
+            session_start();
+            session_regenerate_id();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Détruit la session
+     */
+    private function destroySession():void {
+        session_unset();
+        session_destroy();
+    }
+    
 }
 
 
