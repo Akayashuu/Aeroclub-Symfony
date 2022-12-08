@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitf71fb4b195b5a0468f471024c680cd2f
 {
     public static $prefixLengthsPsr4 = array (
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +18,10 @@ class ComposerStaticInitf71fb4b195b5a0468f471024c680cd2f
     );
 
     public static $prefixDirsPsr4 = array (
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -21,17 +29,6 @@ class ComposerStaticInitf71fb4b195b5a0468f471024c680cd2f
     );
 
     public static $classMap = array (
-        'App\\Config\\ConfigDatabase' => __DIR__ . '/../..' . '/src/Config/ConfigDatabase.php',
-        'App\\Config\\ConfigWeb' => __DIR__ . '/../..' . '/src/Config/ConfigWeb.php',
-        'App\\Controller\\Controller' => __DIR__ . '/../..' . '/src/Controller/Controller.php',
-        'App\\Data\\Connection' => __DIR__ . '/../..' . '/src/Data/Connection.php',
-        'App\\Metier\\Logic' => __DIR__ . '/../..' . '/src/Metier/Logic.php',
-        'App\\Metier\\LogicAccueil' => __DIR__ . '/../..' . '/src/Metier/LogicAccueil.php',
-        'App\\Metier\\LogicAvions' => __DIR__ . '/../..' . '/src/Metier/LogicAvions.php',
-        'App\\Metier\\LogicConnection' => __DIR__ . '/../..' . '/src/Metier/LogicConnection.php',
-        'App\\Metier\\LogicProfile' => __DIR__ . '/../..' . '/src/Metier/LogicProfile.php',
-        'App\\Router\\Router' => __DIR__ . '/../..' . '/src/Router/Router.php',
-        'App\\Test\\ConnectionTest' => __DIR__ . '/../..' . '/src/Test/ConnectionTest.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
