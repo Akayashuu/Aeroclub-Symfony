@@ -44,6 +44,8 @@ class LogicProfile extends Logic {
             session_start();
         }
         if((!$_COOKIE["auth"]) || $_COOKIE["auth"] != $_SESSION["jwt"] || !$_SESSION) {
+            session_unset();
+            session_destroy();
             header("Location: ".$this->config->defaultDir."/");
         }
         $this->content = file_get_contents("./src/View/accueil.html");

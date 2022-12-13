@@ -5,6 +5,11 @@ use App\Metier\LogicAccueil;
 use App\Metier\LogicProfile;
 use App\Metier\LogicAvions;
 use App\Metier\LogicConnection;
+use App\Metier\Logic;
+use App\Metier\LogicSession;
+use App\Metier\LogicCookie;
+use App\Config\ConfigWeb;
+
 
 
 /**
@@ -52,6 +57,25 @@ class Controller {
      */
     static function connection():void {
         $k = new LogicConnection();
+    }
+
+    /**
+     * Gère la deconnection
+     */
+    static function logoff():void {
+        /**
+         * Destruction de session
+         */
+        $sessionHandler = new LogicSession();
+            $sessionHandler->initSession();
+            $sessionHandler->destroySession();
+        $config = new ConfigWeb();
+        /**
+         * Set le cookie à nul
+         */
+        $cookieHandler = new LogicCookie();
+            $cookieHandler->setAuthCookie(null);
+        header("Location: ".$config->defaultDir."/");
     }
 
 }

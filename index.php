@@ -45,8 +45,9 @@ $RouterInstance->register('/connection', function () {
     $v->connection();
 });
 
-$RouterInstance->register('/test', function () {
-    new ConnectionTest();
+$RouterInstance->register('/logoff', function () {
+    $v = new Controller();
+    $v->logoff();
 });
 
 echo $RouterInstance->resolve($_SERVER['REQUEST_URI']);

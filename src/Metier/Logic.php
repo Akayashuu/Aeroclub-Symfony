@@ -13,6 +13,10 @@ use App\Config\ConfigWeb;
  */
 class Logic {
     /**
+     * Composant Logoff HTML
+     */
+    private string $logoffComposent;
+    /**
      * Le fichier body soit l'entete de la page et le footer
      */
     protected string $files;
@@ -26,7 +30,9 @@ class Logic {
      */
     public function __construct() {
         $this->files = file_get_contents("./src/View/body.html");
+        $this->logoffComposent = file_get_contents("./src/View/components/logoff.html");
         $this->config = new ConfigWeb();
+        $this->logOff();
         $this->bodyUpdate();
     }   
 
@@ -42,11 +48,22 @@ class Logic {
             "#TXTBUTTONPROFILE#"=>$this->getButtonText(),
             "#LINKPROFILE#"=>$this->config->defaultDir."/profile",
             "#LINKPLANESLIST#"=>$this->config->defaultDir."/avions",
+            "#LOGOFF#"=>$this->sessionChecker() == true ? $this->logoffComposent : "",
         );
         $this->files = strtr($this->files, $a);
         return $this->files;
     }
        
+
+    /**
+     * Update le composant avant de l'envoyer à la page
+     */
+    private function logOff():void {
+        $arr = array( 
+            "#LINKLOGOFF#"=>$this->config->defaultDir."/logoff"
+        );
+        $this->logoffComposent = strtr($this->logoffComposent, $arr);
+    }
 
     /**
      * Récupère la bonne redirection en fonction de si l'utilisateur est connecté 

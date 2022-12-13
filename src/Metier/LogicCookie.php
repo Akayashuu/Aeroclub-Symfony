@@ -28,7 +28,7 @@ class LogicCookie extends Logic {
      * Set le cookie d'auth pour vérifier si l'utilisateurs est le bon
      * @param string token The token
      */
-    public function setAuthCookie(string $token) {
+    public function setAuthCookie(string|null $token) {
         setcookie("auth", $token, time() + (900), "/"); // 86400 = 1 day
     }
     

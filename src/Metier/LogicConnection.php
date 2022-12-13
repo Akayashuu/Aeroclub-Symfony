@@ -22,6 +22,8 @@ class LogicConnection extends Logic {
             session_start();
         }   
         if(isset($_COOKIE["auth"]) && isset($_SESSION["jwt"])) {
+            session_unset();
+            session_destroy();
             header("Location: ".$this->config->defaultDir."/profile");
         }
         $this->files = file_get_contents("./src/View/connection.html");
