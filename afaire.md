@@ -1,3 +1,3 @@
-Key email => index (Unique)
-Auth set privateKey on private (SESSION)
-Auth set privateKeyAuth on public (Cookie)
+Ajouter un boutton déco 
+Ajouter les EXBC sur le profile
+Refaire le CSS du profile

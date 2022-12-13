@@ -18,6 +18,12 @@ class LogicConnection extends Logic {
      */
     public function __construct() {
         parent::__construct();
+        if(!session_id()) {
+            session_start();
+        }   
+        if(isset($_COOKIE["auth"]) && isset($_SESSION["jwt"])) {
+            header("Location: ".$this->config->defaultDir."/profile");
+        }
         $this->files = file_get_contents("./src/View/connection.html");
         $this->makeView();
     }
