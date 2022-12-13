@@ -38,7 +38,7 @@ CREATE TABLE membres (
     ville varchar(30), 
     tel varchar(20), 
     fax varchar(20), 
-    email varchar(20), 
+    email varchar(20) UNIQUE, 
     numBadge integer, 
     numQualif integer, 
     profession varchar(20), 

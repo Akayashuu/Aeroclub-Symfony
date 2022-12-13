@@ -2,8 +2,9 @@
 namespace App\Metier;
 use App\Config\ConfigWeb;
 use App\Metier\Logic;
-use App\Metier\LogicSession
-;
+use App\Metier\LogicCookie;
+use App\Metier\LogicSession;
+use Firebase\JWT\JWT;
 use App\Data\DataMembres;
 require '../../vendor/autoload.php';
 
@@ -42,6 +43,9 @@ class LogicAuth extends Logic {
         $this->email = $email;
         $this->data = $this->getMemberData();
         $this->auth = $this->authentification();
+        if($this->auth) {
+            $this->setAuthTokenFromConnection();
+        }
     }
     
 
@@ -79,26 +83,44 @@ class LogicAuth extends Logic {
     }
 
     /**
-     * Active la session
-     * @return bool
+     * Procédure : 
+     * Première étape : On init une SESSION
+     * Seconde étape : On génère une clef random pour généré le tokene JWT
+     * Troisième étape on génère des DateTimeImmutable au format UNIX
+     * Quatrième étape On créer le payload avec les data du token
+     * Dernière étape on insert dans la session les données et on renvoie le token à l'user dans un cookie
      */
-    private function initSession():bool {
-        if(!session_id()) {
-            session_start();
-            session_regenerate_id();
-            return true;
-        }
-        return false;
+    public function setAuthTokenFromConnection():void {
+        $instanceSession = new LogicSession();
+            $instanceSession->initSession();
+        $instanceCookie = new LogicCookie();
+        $key = $this->getRandomKey();
+        $secretKey  = 'PPRGcMp1GgXz8WpQqpPeepR7uScV0hb7';
+        $issuedAt   = new \DateTimeImmutable();
+        $expire     = $issuedAt->modify('+15 minutes')->getTimestamp();      // Ajoute 15 minutes
+        $data = [
+            'iat'  => $issuedAt->getTimestamp(),         // Issued at:  : heure à laquelle le jeton a été généré
+            'iss'  => "localhost",                     // Émetteur
+            'nbf'  => $issuedAt->getTimestamp(),         // Pas avant..
+            'exp'  => $expire,                           // Expiration
+            'userName' => $this->email,                     // Nom d'utilisateur
+        ];
+        $jwt = JWT::encode($data, $key, 'HS256');
+            $instanceCookie->setAuthCookie($jwt);
+        $_SESSION["key"] = $key;
+        $_SESSION["jwt"] = $jwt;
+        $_SESSION["userid"] = $this->data["nummembres"];
     }
 
     /**
-     * Détruit la session
+     * Récupère une clef random
+     * @return string La clef
      */
-    private function destroySession():void {
-        session_unset();
-        session_destroy();
+    private function getRandomKey():string {
+        $n = rand(10, 30);
+        $result = bin2hex(random_bytes($n));
+        return $result;
     }
-    
 }
 
 

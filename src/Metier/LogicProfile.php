@@ -14,6 +14,10 @@ use App\Data\DataMembres;
  */
 class LogicProfile extends Logic {
     /**
+     * Config web
+     */
+    protected ConfigWeb $config;
+    /**
      * Contenu de la page
      */
     private string $content;
@@ -35,6 +39,13 @@ class LogicProfile extends Logic {
      */
     public function __construct() {
         parent::__construct();
+        $this->config = new ConfigWeb();
+        if(!session_id()) {
+            session_start();
+        }
+        if((!$_COOKIE["auth"]) || $_COOKIE["auth"] != $_SESSION["jwt"] || !$_SESSION) {
+            header("Location: ".$this->config->defaultDir."/");
+        }
         $this->content = file_get_contents("./src/View/accueil.html");
         $this->connectionFiles = file_get_contents("./src/View/connection.html");
         $this->profileFiles = file_get_contents("./src/View/profil.html");
@@ -86,7 +97,7 @@ class LogicProfile extends Logic {
      */
     private function ProfileData():array {
         $t = new DataMembres();
-        $d = $t->SelectInfosProfil(1);
+        $d = $t->SelectInfosProfil($_SESSION["userid"]);
         return $d;
     }
    

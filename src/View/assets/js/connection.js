@@ -13,7 +13,14 @@ $("#connectButton").on("click", (event) => {
         }
     ).then(async function(response) {
         if(response.ok) {
-            console.log(await response.text())
+            const responseText = await response.text()
+            if(responseText) {
+                fetch("/aeroclub/src/Config/json/configWeb.json", {
+                    method: "GET",
+                }).then(async (dataJson) => {
+                    window.location.href = JSON.parse(await dataJson.text())["defaultPath"]+`/profile`;
+                })
+            }
         }
     })
 });

@@ -22,8 +22,12 @@ class ConfigWeb {
     /**
      * Constructor
      */
-    public function __construct() {}
-    
+    public function __construct() {
+        $string = file_get_contents("./src/Config/json/configWeb.json");
+        $json = json_decode($string, true);
+        $this->defaultDir = $json["defaultPath"];
+    }
+
     /**
      * Get Properties in the class if she exist
      * @return String|false Properties 

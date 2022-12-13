@@ -28,7 +28,7 @@ class LogicSession extends Logic {
      * Active la session
      * @return bool
      */
-    private function initSession():bool {
+    public function initSession():bool {
         if(!session_id()) {
             session_start();
             session_regenerate_id();
@@ -40,7 +40,7 @@ class LogicSession extends Logic {
     /**
      * Détruit la session
      */
-    private function destroySession():void {
+    public function destroySession():void {
         session_unset();
         session_destroy();
     }

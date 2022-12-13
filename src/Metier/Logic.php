@@ -73,7 +73,13 @@ class Logic {
     }
 
     protected function sessionChecker() {
-        return false;    
+        if(!session_id()) {
+            session_start();
+        }
+        if(isset($_SESSION["jwt"]) && isset($_COOKIE["auth"])) {
+            return $_SESSION["jwt"] == $_COOKIE["auth"];    
+        }
+        return false;
     }
    
    
