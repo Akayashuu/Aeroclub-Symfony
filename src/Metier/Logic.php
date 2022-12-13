@@ -28,8 +28,8 @@ class Logic {
     /**
      * Constructor
      */
-    public function __construct() {
-        $this->files = file_get_contents("./src/View/body.html");
+    public function __construct($filesPath = "./src/View/body.html") {
+        $this->files = file_get_contents($filesPath);
         $this->logoffComposent = file_get_contents("./src/View/components/logoff.html");
         $this->config = new ConfigWeb();
         $this->logOff();

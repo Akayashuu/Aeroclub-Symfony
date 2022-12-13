@@ -13,13 +13,18 @@ $("#connectButton").on("click", (event) => {
         }
     ).then(async function(response) {
         if(response.ok) {
-            const responseText = await response.text()
-            if(responseText) {
+            let responseText = await response.text();
+                responseText = JSON.parse(responseText)
+            if(responseText["result"] == true) {
                 fetch("/aeroclub/src/Config/json/configWeb.json", {
                     method: "GET",
                 }).then(async (dataJson) => {
                     window.location.href = JSON.parse(await dataJson.text())["defaultPath"]+`/profile`;
                 })
+            } else {
+                const errorDiv = document.getElementsByClassName("notification")[0]
+                    errorDiv.innerHTML = "<p><i class='fa-solid fa-bug'></i> Problème d'authentification ! Mots de passe ou email incorrect</p>"
+                    errorDiv.style = ""
             }
         }
     })

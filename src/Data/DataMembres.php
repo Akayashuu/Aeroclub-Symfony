@@ -57,10 +57,6 @@ class DataMembres extends Connection {
      */
     private string $profession = "";
     /**
-     * Numéro civil du membre
-     */
-    private string $numCivil = "";
-    /**
      * Numéro de qualification du membre
      */
     private int $numQualif = 0;
@@ -132,8 +128,11 @@ class DataMembres extends Connection {
         $requete = "SELECT * FROM membres WHERE nummembres = :id;";
         $prep = $this->pdo->prepare($requete);
         $prep->bindValue(':id', $numMembres);
-        $prep->execute();
+        $s = $prep->execute();
         $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);
+        if(!$s) {
+            return array();
+        }
         foreach ($membres[0] as $clef =>$data){
             $this->$clef = $data;
         }
@@ -149,7 +148,10 @@ class DataMembres extends Connection {
         $requete = "SELECT email, password, nummembres FROM membres WHERE email = :email;";
         $prep = $this->pdo->prepare($requete);
         $prep->bindValue(':email', $email);
-        $prep->execute();
+        $s = $prep->execute();
+        if(!$s) {
+            return array();
+        }
         $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);
         return $membres;
     }

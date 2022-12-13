@@ -54,16 +54,20 @@ class LogicAuth extends Logic {
      * @return array Les données
      */
     private function getMemberData():array {
+        $r;
         $t = new DataMembres();
         $data = $t->getUserFromHisPasswordAndEmail($this->email);
-        return $data[0];
+            if(count($data)>= 1) {
+                return $data[0];
+            }
+        return array();
     }
 
     /**
      * Vérifie si le mots de passe est le bon
      */
-    public function authentification() {
-        return password_verify($this->password, $this->data["password"]) && $this->email == $this->data["email"] ? true : false;
+    public function authentification():bool {
+        return (password_verify($this->password, $this->data["password"]) && $this->email == $this->data["email"]) ? true : false;
     }
 
     /**
@@ -135,7 +139,10 @@ if($_POST) {
 
 $k = new LogicAuth($password, $email);
 
-echo json_encode($k->auth);
+$ks = array(
+    "result"=>$k->auth
+);
+echo json_encode($ks);
 
 
 

@@ -38,7 +38,7 @@ class LogicProfile extends Logic {
      * Constructor
      */
     public function __construct() {
-        parent::__construct();
+        parent::__construct("./src/View/bodyNoHeroBody.html");
         $this->config = new ConfigWeb();
         if(!session_id()) {
             session_start();
