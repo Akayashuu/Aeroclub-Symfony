@@ -14,7 +14,13 @@ $("#connectButton").on("click", (event) => {
     ).then(async function(response) {
         if(response.ok) {
             let responseText = await response.text();
-                responseText = JSON.parse(responseText)
+                try {
+                    responseText = JSON.parse(responseText)
+                } catch(e) {
+                    const errorDiv = document.getElementsByClassName("notification")[0]
+                    errorDiv.innerHTML = "<p><i class='fa-solid fa-bug'></i> Problème d'authentification ! Mots de passe ou email incorrect</p>"
+                    errorDiv.style = ""
+                }
             if(responseText["result"] == true) {
                 fetch("/aeroclub/src/Config/json/configWeb.json", {
                     method: "GET",

@@ -130,7 +130,7 @@ class DataMembres extends Connection {
         $prep->bindValue(':id', $numMembres);
         $s = $prep->execute();
         $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);
-        if(!$s) {
+        if(count($membres) <= 0) {
             return array();
         }
         foreach ($membres[0] as $clef =>$data){
@@ -149,10 +149,10 @@ class DataMembres extends Connection {
         $prep = $this->pdo->prepare($requete);
         $prep->bindValue(':email', $email);
         $s = $prep->execute();
-        if(!$s) {
+        $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);
+        if(count($membres) <= 0) {
             return array();
         }
-        $membres = $prep->fetchAll(\PDO::FETCH_ASSOC);
         return $membres;
     }
 

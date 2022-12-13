@@ -85,7 +85,17 @@ class LogicProfile extends Logic {
      * Fait l'update des varriables dans le code HTML pour la vue
      */
     private function updateProfile():void {
-        $v = $this->ProfileData()[0];
+        $v = $this->ProfileData();
+        if(count($v) <= 0) {
+            $sessionHandler = new LogicSession();
+                $sessionHandler->initSession();
+                $sessionHandler->destroySession();
+            $config = new ConfigWeb();
+            $cookieHandler = new LogicCookie();
+                $cookieHandler->setAuthCookie(null);
+            header("Location: ".$config->defaultDir."/");
+        }
+        $v = $v[0];
         $a = array();
         foreach($v as $k => $s) {
             $a["#".strtoupper($k)."#"] = $s;

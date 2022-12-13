@@ -57,7 +57,7 @@ class LogicAuth extends Logic {
         $r;
         $t = new DataMembres();
         $data = $t->getUserFromHisPasswordAndEmail($this->email);
-            if(count($data)>= 1) {
+            if(count($data) >= 1) {
                 return $data[0];
             }
         return array();
@@ -67,6 +67,9 @@ class LogicAuth extends Logic {
      * Vérifie si le mots de passe est le bon
      */
     public function authentification():bool {
+        if(count($this->data) <= 0) {
+            return false;
+        }
         return (password_verify($this->password, $this->data["password"]) && $this->email == $this->data["email"]) ? true : false;
     }
 
