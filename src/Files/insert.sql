@@ -6,3 +6,8 @@ INSERT INTO membres (nom,prenom,adresse,codepostal,ville,tel,fax,email,numbadge,
 
 INSERT INTO avions (types, tauxdouble, forfait1, forfait2, forfait3, reductionsemaine, immatriculation, image, name, description) VALUES ('test', 5, 5, 5, 5, 5, 'aaaa', 'paintimage2.png', 'Mon super Avions', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut lectus arcu bibendum at varius vel pharetra. Magna eget est lorem ipsum dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada. Ullamcorper malesuada proin libero nunc consequat interdum varius sit ');
 INSERT INTO avions (types, tauxdouble, forfait1, forfait2, forfait3, reductionsemaine, immatriculation, image, name, description) VALUES ('test', 5, 5, 5, 5, 5, 'aaaa', 'paintPlane.png' , 'Mon super Avions', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut lectus arcu bibendum at varius vel pharetra. Magna eget est lorem ipsum dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada. Ullamcorper malesuada proin libero nunc consequat interdum varius sit ');
+
+
+INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (1, null, 'Init acc 2', CURRENT_DATE, 0, 522);
+INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (1, null, 'Remboursement 1', CURRENT_DATE, 5000, 0);
+INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (1, null, 'Remboursement 2 ', CURRENT_DATE, 5000, 0);
