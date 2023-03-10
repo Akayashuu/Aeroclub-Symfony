@@ -7,9 +7,9 @@ INSERT INTO membres (nom,prenom,adresse,codepostal,ville,tel,fax,email,numbadge,
 
 
 
-INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (1, null, 'Init acc 2', CURRENT_DATE, 0, 522);
-INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (1, null, 'Remboursement 1', CURRENT_DATE, 5000, 0);
-INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (1, null, 'Remboursement 2 ', CURRENT_DATE, 5000, 0);
+INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (2, null, 'Init acc 2', CURRENT_DATE, 0, 522);
+INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (2, null, 'Remboursement 1', CURRENT_DATE, 5000, 0);
+INSERT INTO comptesAc(numMembre, numSeq, description, date, debit, credit) VALUES (2, null, 'Remboursement 2 ', CURRENT_DATE, 5000, 0);
 
 INSERT INTO avions (numAvions, type_avion, taux, forfait1, forfait2, forfait3, heures_forfait1, heures_forfait2, heures_forfait3, reduction_semaine, immatriculation, image, name, description)
 VALUES
