@@ -8,6 +8,8 @@ composer install
 
 ``` 
 
+Configurer le fichier de base de données dans config
+
 ## Fonctionnalité attendu 
 
 - Consultation des données personnelles.
@@ -18,3 +20,9 @@ composer install
 
 Bulma Templates : https://bulmatemplates.github.io/bulma-templates/  
 Bulma : https://bulma.io/documentation/overview/start/  
+
+
+## Version
+
+Composer 2.5.1
+PHP 8.2
