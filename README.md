@@ -8,7 +8,7 @@ composer install
 
 ``` 
 
-Configurer le fichier de base de données dans config
+Configurer le fichier de base de données dans config    
 
 ## Fonctionnalité attendu 
 
@@ -24,5 +24,5 @@ Bulma : https://bulma.io/documentation/overview/start/
 
 ## Version
 
-Composer 2.5.1
-PHP 8.2
+Composer 2.5.1    
+PHP 8.2    
