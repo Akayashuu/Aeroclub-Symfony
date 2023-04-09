@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+default:
+    path: /
+    controller: App\Controller\PublicController::index
+
+planes:
+    path: /avions
+    controller: App\Controller\PublicController::planes

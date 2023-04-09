@@ -1,0 +1,129 @@
+{% extends 'layout/withoutHeroHeader.html.twig' %}
+{% block body %}
+<div class="container">
+        <h1 class="title">{{ membre.getName() }}</h1>
+        <hr>
+
+        <div class="columns">
+            <div class="column">
+                <h2 class="subtitle">Informations personnelles</h2>
+                <table class="table is-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Nom</td>
+                            <td>{{ membre.getNom() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Prénom</td>
+                            <td>{{ membre.getPrenom() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Adresse</td>
+                            <td>{{ membre.getAdresse() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Code postal</td>
+                            <td>{{ membre.getCodePostal() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ville</td>
+                            <td>{{ membre.getVille() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Téléphone</td>
+                            <td>{{ membre.getTel() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Fax</td>
+                            <td>{{ membre.getFax() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{ membre.getEmail() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Profession</td>
+                            <td>{{ membre.getProfession() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Lieu de naissance</td>
+                            <td>{{ membre.getLieuNaissance() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de naissance</td>
+                            <td>{{ membre.getDateNaissance()|date('d/m/Y') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          <div class="column">
+                <h2 class="subtitle">Qualifications</h2>
+                <table class="table is-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Badge</td>
+                            <td>{{ membre.getNumBadge().getBadge() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Qualification</td>
+                            <td>{{ membre.getNumQualif().getQualif() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date d'inscription</td>
+                            <td>{{ membre.getDateInscription()|date('d/m/Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Numéro de brevet BB</td>
+                            <td>{{ membre.getNumeroBB() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de brevet BB</td>
+                            <td>{{ membre.getDateBB()|date('d/m/Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td>Numéro de brevet PPLA</td>
+                            <td>{{ membre.getNumeroPPLA() }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date de brevet PPLA</td>
+                            <td>{{ membre.getDatePPLA()|date('d/m/Y') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+        <table id="myTable" class="table is-striped is-fullwidth">
+            <thead>
+                <tr>
+                <th>Numéro de Compte</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Débit</th>
+                <th>Crédit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for com in compte %}
+                    <tr>
+                        <td>{{ com.getNumCompte }}</td>
+                        <td>{{ com.getDescription() }}</td>
+                        <td>{{ com.getDate()|date('d/m/Y') }}</td>
+                        <td>{{ com.getDebit() }}</td>
+                        <td>{{ com.getCredit() }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>  
+        <br>
+        <br>
+        <br>
+    </div>
+    <script>
+        $(document).ready(function() {$('#myTable').DataTable(
+            {
+                "lengthMenu": [ [10, 15, 25, 50, 100, -1], [10, 15, 25, 50, 100, "All"] ],
+            }
+        );});
+    </script>
+{% endblock %}

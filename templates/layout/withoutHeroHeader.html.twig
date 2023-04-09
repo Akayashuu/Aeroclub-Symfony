@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aeroclub - Accueil</title>
+        <link rel="shortcut icon" href="" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- Bulma Version 0.9.0-->
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bulma.min.css">
+            {% block stylesheets %}
+                {{ encore_entry_link_tags('accueil') }}
+            {% endblock %}
+            {% block javascript %}
+                {{ encore_entry_script_tags('nav') }}
+            {% endblock %}
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bulma.min.js"></script>
+    </head>
+    <body>
+        <section class="hero is-info is-medium is-bold">
+                <div class="hero-head">
+                    <nav class="navbar">
+                        <div class="container">
+                            <div class="navbar-brand">
+                                <a class="navbar-item" href="#LINKACC#">
+                                    <p class="brand-paragraph">Aeroclub</p>
+                                </a>
+                                <span class="navbar-burger burger" data-target="navbarMenu">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </div>
+                            <div id="navbarMenu" class="navbar-menu">
+                                <div class="navbar-end">
+                                    <div class="tabs is-right">
+                                        <ul class="navLi">
+                                            <li id="default"><a href="/">Home</a></li>
+                                            <li id="avions"><a href="/avions">Avions</a></li>
+                                            {% if logoff == 1 %}
+                                            <li id="logoff"><a href="/logout">Déconnexion</a></li>
+                                            {% endif %}
+                                        </ul>
+                                        <span class="navbar-item">
+                                            <a class="button is-white is-outlined" href="
+                                            {% if logoff == 0 %}
+                                                    /connexion
+                                                {% else %} 
+                                                    /profile
+                                                {% endif %}
+                                            ">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-globe"></i>
+                                                </span>
+                                                <span title="Hello from the other side">
+                                                {% if logoff == 0 %}
+                                                    Connexion
+                                                {% else %} 
+                                                    Profile
+                                                {% endif %}
+                                                </span>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </section>
+            <br><br>
+        {% block body %}
+        
+        {% endblock %}
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <div class="control level-item">
+                        <a href="https://github.com/BulmaTemplates/bulma-templates">
+                            <div class="tags has-addons">
+                                <span class="tag is-dark">Bulma Templates</span>
+                                <span class="tag is-info">MIT license</span>
+                            </div>
+                        </a>
+                    </div>
+                    <br>
+                    <div class="content has-text-centered">
+                        <p>
+                            <strong>Aeroclub</strong> par Joey et Léo. 
+                            <br>
+                            <p>2005-2022</p>
+                        </p>
+                      </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

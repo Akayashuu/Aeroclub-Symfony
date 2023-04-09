@@ -1,0 +1,49 @@
+{% extends 'layout/connexionHeader.html.twig' %}
+{% block title %}Configuration paramètres application{% endblock %}
+
+{% block body %}
+    {% block content %}
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-centered  ">Login</h3>
+                    <hr class="login-hr">
+                    <p class="subtitle has-text-centered">Veuillez vous connecter pour continuer.</p>
+                    <div class="box">
+                        {{ form_start(form)}}
+                        <form>
+                            <div class="field">
+                                <div class="control">
+                                    <label class="label"><i class="fa-solid fa-envelope"></i> Email</label>
+                                    {{form_widget(form.email, {'attr':{'class':'input is-large', placeholder:"Votre Email", id:"inputUser"}})}}
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <label class="label"><i class="fa-solid fa-key"></i> Mot de passe</label>
+                                    {{form_widget(form.password, {'attr':{'class':'input is-large', placeholder:"Votre mot de passe", id:"inputPassword"}})}}
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                            </div>
+                            {{ form_widget(form.save, {'attr':{'class':'button is-block is-info is-large is-fullwidth'}, 'label': 'Connection <i class="fa fa-sign-in" aria-hidden="true"></i>', 'label_html':true  }) }}
+                            
+                        </form>
+                        {{ form_end(form) }}
+                    </div>
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="notification is-danger">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+{% endblock %}

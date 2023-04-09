@@ -1,0 +1,39 @@
+{
+    "devDependencies": {
+        "@babel/core": "^7.17.0",
+        "@babel/preset-env": "^7.16.0",
+        "@hotwired/stimulus": "^3.0.0",
+        "@symfony/stimulus-bridge": "^3.2.0",
+        "@symfony/webpack-encore": "^4.0.0",
+        "bulma": "^0.9.4",
+        "core-js": "^3.23.0",
+        "css-loader": "^6.7.3",
+        "mini-css-extract-plugin": "^2.7.2",
+        "node-sass": "^8.0.0",
+        "regenerator-runtime": "^0.13.9",
+        "sass-loader": "^13.2.0",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.76.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-notifier": "^1.15.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.2.1",
+        "@fullcalendar/core": "^6.1.5",
+        "@fullcalendar/daygrid": "^6.1.5",
+        "@fullcalendar/list": "^6.1.5",
+        "@fullcalendar/timegrid": "^6.1.5",
+        "bulma-calendar": "^6.1.19",
+        "datatables.net-dt": "^1.13.4",
+        "highlight.js": "^11.7.0",
+        "jquery": "^3.6.3"
+    }
+}
