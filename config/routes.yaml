@@ -11,3 +11,16 @@ default:
 planes:
     path: /avions
     controller: App\Controller\PublicController::planes
+
+logout:
+    path: /logout
+    controller: App\Controller\AuthenticationController::logout
+
+connexion:
+    path: /connexion
+    controller: App\Controller\AuthenticationController::index
+
+profile:
+    path: /profile
+    controller: App\Controller\AuthenticationController::profile
+    
